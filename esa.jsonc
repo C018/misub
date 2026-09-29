@@ -1,0 +1,27 @@
+{
+  // ============================================================
+  // MiSub 阿里云 ESA 部署配置示例
+  // 复制本文件为 esa.private.jsonc（不要提交到 Git）并填入真实值；
+  // 或在 ESA 控制台「函数配置 → 环境变量」中逐一添加。
+  //
+  // 说明：
+  // - MISUB_KV_NAMESPACE：ESA 控制台创建的 EdgeKV 命名空间名称（非 ID）
+  // - CRON_SECRET：/cron 外部触发鉴权密钥，需与设置页「自动任务配置」一致
+  // - 其余变量与 CF 版 env 一一对应，未设置的将回退到前端设置页默认值
+  // ============================================================
+
+  // --- EdgeKV 命名空间（ESA 控制台创建的 EdgeKV 命名空间名称）---
+  "EDGE_KV_NAMESPACE": "misub-kv",
+
+  // --- 定时同步外部触发密钥（外部定时器调用 /cron?secret=xxx）---
+  "CRON_SECRET": "change-me-to-a-long-random-string",
+
+  // --- 可选：订阅同步参数（缺省使用代码内置默认值）---
+  // "MAX_SYNC_COUNT": "50",   // 单次同步最大订阅数
+  // "SYNC_TIMEOUT": "30000",  // 单订阅抓取超时（毫秒）
+  // "MAX_CONCURRENCY": "3",   // 同步并发数（ESA 单次 fetch 子请求上限 4，请勿超过）
+
+  // --- 可选：Telegram 通知（对应前端设置页）---
+  // "TELEGRAM_BOT_TOKEN": "",
+  // "TELEGRAM_CHAT_ID": ""
+}
